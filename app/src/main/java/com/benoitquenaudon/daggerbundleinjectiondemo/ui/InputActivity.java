@@ -1,0 +1,24 @@
+package com.benoitquenaudon.daggerbundleinjectiondemo.ui;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.EditText;
+import com.benoitquenaudon.daggerbundleinjectiondemo.R;
+
+import static com.benoitquenaudon.daggerbundleinjectiondemo.injection.module.BundleModule.EXTRA_SOME_INPUT;
+
+public class InputActivity extends BaseAppCompatActivity {
+  @Override public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    getActivityComponent().inject(this);
+
+    setContentView(R.layout.activity_input);
+
+    final EditText editText = findViewById(R.id.edit_text);
+    findViewById(R.id.button).setOnClickListener(v -> {
+      Intent intent = new Intent(InputActivity.this, OutputActivity.class);
+      intent.putExtra(EXTRA_SOME_INPUT, editText.getText().toString());
+      InputActivity.this.startActivity(intent);
+    });
+  }
+}
