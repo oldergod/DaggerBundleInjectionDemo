@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import com.benoitquenaudon.daggerbundleinjectiondemo.BundleService;
-import com.benoitquenaudon.daggerbundleinjectiondemo.MyApplication;
-import com.benoitquenaudon.daggerbundleinjectiondemo.injection.component.ActivityComponent;
-import com.benoitquenaudon.daggerbundleinjectiondemo.injection.module.ActivityModule;
 
 @SuppressLint("Registered") //
 public class BaseAppCompatActivity extends AppCompatActivity {
@@ -20,11 +17,6 @@ public class BaseAppCompatActivity extends AppCompatActivity {
 
   public BundleService getBundleService() {
     return bundleService;
-  }
-
-  protected ActivityComponent getActivityComponent() {
-    return ((MyApplication) getApplication()).getApplicationComponent()
-        .plus(new ActivityModule(this));
   }
 
   protected void onSaveInstanceState(Bundle outState) {

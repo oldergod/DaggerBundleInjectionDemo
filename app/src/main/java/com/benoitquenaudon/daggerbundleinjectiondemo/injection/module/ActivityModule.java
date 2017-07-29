@@ -1,22 +1,16 @@
 package com.benoitquenaudon.daggerbundleinjectiondemo.injection.module;
 
-import android.app.Activity;
+import com.benoitquenaudon.daggerbundleinjectiondemo.injection.scope.ScopeActivity;
+import com.benoitquenaudon.daggerbundleinjectiondemo.ui.input.InputActivity;
 import com.benoitquenaudon.daggerbundleinjectiondemo.ui.output.OutputActivity;
 import dagger.Module;
-import dagger.Provides;
+import dagger.android.ContributesAndroidInjector;
 
-@Module public final class ActivityModule {
-  private final Activity activity;
+@Module public abstract class ActivityModule {
+  @ScopeActivity @ContributesAndroidInjector(modules = BundleModule.class)
+  abstract InputActivity contributeInputActivityInjector();
 
-  public ActivityModule(Activity activity) {
-    this.activity = activity;
-  }
-
-  @Provides Activity activity() {
-    return activity;
-  }
-
-  @Provides OutputActivity outputActivity() {
-    return (OutputActivity) activity;
-  }
+  @ScopeActivity
+  @ContributesAndroidInjector(modules = { BundleModule.class, OutputActivityModule.class })
+  abstract OutputActivity contributeOutputActivityInjector();
 }
