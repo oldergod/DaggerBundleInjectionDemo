@@ -1,9 +1,11 @@
-package com.benoitquenaudon.daggerbundleinjectiondemo.ui;
+package com.benoitquenaudon.daggerbundleinjectiondemo.ui.input;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import com.benoitquenaudon.daggerbundleinjectiondemo.R;
+import com.benoitquenaudon.daggerbundleinjectiondemo.ui.BaseAppCompatActivity;
+import com.benoitquenaudon.daggerbundleinjectiondemo.ui.output.OutputActivity;
 
 import static com.benoitquenaudon.daggerbundleinjectiondemo.injection.module.BundleModule.EXTRA_SOME_INPUT;
 

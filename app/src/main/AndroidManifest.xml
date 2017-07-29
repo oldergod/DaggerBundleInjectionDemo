@@ -11,7 +11,7 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
     <activity
-        android:name=".ui.InputActivity"
+        android:name=".ui.input.InputActivity"
         android:label="Input">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
@@ -19,7 +19,7 @@
       </intent-filter>
     </activity>
     <activity
-        android:name=".ui.OutputActivity"
+        android:name=".ui.output.OutputActivity"
         android:label="Output"/>
   </application>
 

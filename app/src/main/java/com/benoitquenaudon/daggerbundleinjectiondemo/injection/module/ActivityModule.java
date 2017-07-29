@@ -1,6 +1,7 @@
 package com.benoitquenaudon.daggerbundleinjectiondemo.injection.module;
 
 import android.app.Activity;
+import com.benoitquenaudon.daggerbundleinjectiondemo.ui.output.OutputActivity;
 import dagger.Module;
 import dagger.Provides;
 
@@ -13,5 +14,9 @@ import dagger.Provides;
 
   @Provides Activity activity() {
     return activity;
+  }
+
+  @Provides OutputActivity outputActivity() {
+    return (OutputActivity) activity;
   }
 }
