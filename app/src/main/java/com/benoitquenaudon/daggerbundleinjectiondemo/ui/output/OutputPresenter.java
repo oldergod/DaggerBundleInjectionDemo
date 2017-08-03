@@ -4,10 +4,12 @@ import com.benoitquenaudon.daggerbundleinjectiondemo.injection.SomeInput;
 import javax.inject.Inject;
 
 class OutputPresenter {
-  @Inject @SomeInput String inputText;
-  @Inject OutputActivity activity;
+  private final OutputActivity activity;
+  private final String inputText;
 
-  @Inject OutputPresenter() {
+  @Inject OutputPresenter(OutputActivity activity, @SomeInput String inputText) {
+    this.activity = activity;
+    this.inputText = inputText;
   }
 
   void onStart() {
