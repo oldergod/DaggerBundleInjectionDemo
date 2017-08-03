@@ -6,13 +6,11 @@ import android.widget.EditText;
 import com.benoitquenaudon.daggerbundleinjectiondemo.R;
 import com.benoitquenaudon.daggerbundleinjectiondemo.ui.BaseAppCompatActivity;
 import com.benoitquenaudon.daggerbundleinjectiondemo.ui.output.OutputActivity;
-import dagger.android.AndroidInjection;
 
 import static com.benoitquenaudon.daggerbundleinjectiondemo.injection.module.BundleModule.EXTRA_SOME_INPUT;
 
 public class InputActivity extends BaseAppCompatActivity {
   @Override public void onCreate(Bundle savedInstanceState) {
-    AndroidInjection.inject(this);
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_input);

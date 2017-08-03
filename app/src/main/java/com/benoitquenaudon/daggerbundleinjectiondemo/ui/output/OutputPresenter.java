@@ -3,12 +3,13 @@ package com.benoitquenaudon.daggerbundleinjectiondemo.ui.output;
 import com.benoitquenaudon.daggerbundleinjectiondemo.injection.SomeInput;
 import javax.inject.Inject;
 
-public class OutputPresenter {
-  @Inject @SomeInput String inputText;
+class OutputPresenter {
   private final OutputActivity activity;
+  private final String inputText;
 
-  @Inject public OutputPresenter(OutputActivity activity) {
+  @Inject OutputPresenter(OutputActivity activity, @SomeInput String inputText) {
     this.activity = activity;
+    this.inputText = inputText;
   }
 
   void onStart() {

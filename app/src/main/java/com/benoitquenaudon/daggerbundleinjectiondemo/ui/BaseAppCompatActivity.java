@@ -1,18 +1,16 @@
 package com.benoitquenaudon.daggerbundleinjectiondemo.ui;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import com.benoitquenaudon.daggerbundleinjectiondemo.BundleService;
+import dagger.android.support.DaggerAppCompatActivity;
 
-@SuppressLint("Registered") //
-public class BaseAppCompatActivity extends AppCompatActivity {
+public abstract class BaseAppCompatActivity extends DaggerAppCompatActivity {
   private BundleService bundleService;
 
   @Override public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
     bundleService = new BundleService(savedInstanceState, getIntent().getExtras());
+    super.onCreate(savedInstanceState);
   }
 
   public BundleService getBundleService() {
