@@ -6,10 +6,10 @@ import com.benoitquenaudon.daggerbundleinjectiondemo.ui.output.OutputActivity;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
-@Module public abstract class ApplicationModule {
-  @ScopeActivity @ContributesAndroidInjector(modules = { InputActivityModule.class, BundleModule.class })
+@Module public abstract class MyApplicationModule {
+  @ScopeActivity @ContributesAndroidInjector(modules = { InputActivityModule.class })
   abstract InputActivity contributeInputActivityInjector();
 
-  @ScopeActivity @ContributesAndroidInjector(modules = { OutputActivityModule.class, BundleModule.class })
+  @ScopeActivity @ContributesAndroidInjector(modules = { OutputActivityModule.class })
   abstract OutputActivity contributeOutputActivityInjector();
 }

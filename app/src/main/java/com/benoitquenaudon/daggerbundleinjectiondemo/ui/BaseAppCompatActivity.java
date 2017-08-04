@@ -4,21 +4,26 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import com.benoitquenaudon.daggerbundleinjectiondemo.BundleService;
 import dagger.android.support.DaggerAppCompatActivity;
+import javax.inject.Inject;
 
 public abstract class BaseAppCompatActivity extends DaggerAppCompatActivity {
-  private BundleService bundleService;
+  @Inject BundleService bundleService;
+  private Bundle savedInstanceState;
 
   @Override public void onCreate(@Nullable Bundle savedInstanceState) {
-    bundleService = new BundleService(savedInstanceState, getIntent().getExtras());
+    this.savedInstanceState = savedInstanceState;
     super.onCreate(savedInstanceState);
-  }
-
-  public BundleService getBundleService() {
-    return bundleService;
   }
 
   protected void onSaveInstanceState(Bundle outState) {
     outState.putAll(bundleService.getAll());
     super.onSaveInstanceState(outState);
+  }
+
+  public Bundle getBundles() {
+    Bundle extras = getIntent().getExtras();
+    if (extras == null) extras = new Bundle();
+    if (savedInstanceState != null) extras.putAll(savedInstanceState);
+    return extras;
   }
 }
