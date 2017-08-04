@@ -7,7 +7,7 @@ import com.benoitquenaudon.daggerbundleinjectiondemo.R;
 import com.benoitquenaudon.daggerbundleinjectiondemo.ui.BaseAppCompatActivity;
 import com.benoitquenaudon.daggerbundleinjectiondemo.ui.output.OutputActivity;
 
-import static com.benoitquenaudon.daggerbundleinjectiondemo.injection.module.BundleModule.EXTRA_SOME_INPUT;
+import static com.benoitquenaudon.daggerbundleinjectiondemo.injection.module.OutputActivityModule.EXTRA_SOME_INPUT;
 
 public class InputActivity extends BaseAppCompatActivity {
   @Override public void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class InputActivity extends BaseAppCompatActivity {
 
     final EditText editText = findViewById(R.id.edit_text);
     findViewById(R.id.button).setOnClickListener(v -> {
-      Intent intent = new Intent(InputActivity.this, OutputActivity.class);
+      final Intent intent = new Intent(InputActivity.this, OutputActivity.class);
       intent.putExtra(EXTRA_SOME_INPUT, editText.getText().toString());
       InputActivity.this.startActivity(intent);
     });

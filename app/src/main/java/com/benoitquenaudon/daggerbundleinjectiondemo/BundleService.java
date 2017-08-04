@@ -1,30 +1,26 @@
 package com.benoitquenaudon.daggerbundleinjectiondemo;
 
 import android.os.Bundle;
+import com.benoitquenaudon.daggerbundleinjectiondemo.injection.scope.ScopeActivity;
+import com.benoitquenaudon.daggerbundleinjectiondemo.ui.BaseAppCompatActivity;
+import javax.inject.Inject;
 
-public class BundleService {
-  private final Bundle data;
+@ScopeActivity public class BundleService {
+  private final Bundle all = new Bundle();
 
-  public BundleService(Bundle savedState, Bundle intentExtras) {
-    data = new Bundle();
+  @Inject BundleService(BaseAppCompatActivity activity) {
+    all.putAll(activity.getBundles());
+  }
 
-    if (savedState != null) {
-      data.putAll(savedState);
-    }
-    if (intentExtras != null) {
-      data.putAll(intentExtras);
-    }
+  public boolean has(String key) {
+    return all.containsKey(key);
   }
 
   public Object get(String key) {
-    return data.get(key);
-  }
-
-  public boolean contains(String key) {
-    return data.containsKey(key);
+    return all.get(key);
   }
 
   public Bundle getAll() {
-    return data;
+    return all;
   }
 }
