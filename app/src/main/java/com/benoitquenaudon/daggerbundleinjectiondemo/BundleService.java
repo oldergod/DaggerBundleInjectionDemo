@@ -1,11 +1,12 @@
 package com.benoitquenaudon.daggerbundleinjectiondemo;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 
 public class BundleService {
   private final Bundle data;
 
-  public BundleService(Bundle savedState, Bundle intentExtras) {
+  public BundleService(@Nullable Bundle savedState, @Nullable Bundle intentExtras) {
     data = new Bundle();
 
     if (savedState != null) {

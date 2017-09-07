@@ -17,7 +17,7 @@ public abstract class BaseAppCompatActivity extends DaggerAppCompatActivity {
     return bundleService;
   }
 
-  protected void onSaveInstanceState(Bundle outState) {
+  @Override protected void onSaveInstanceState(Bundle outState) {
     outState.putAll(bundleService.getAll());
     super.onSaveInstanceState(outState);
   }

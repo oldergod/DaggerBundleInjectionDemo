@@ -9,6 +9,6 @@ import javax.inject.Singleton;
 
 @Singleton @Component(modules = { ApplicationModule.class, AndroidSupportInjectionModule.class })
 public interface ApplicationComponent extends AndroidInjector<MyApplication> {
-  @dagger.Component.Builder abstract class Builder extends AndroidInjector.Builder<MyApplication> {
+  @Component.Builder abstract class Builder extends AndroidInjector.Builder<MyApplication> {
   }
 }
